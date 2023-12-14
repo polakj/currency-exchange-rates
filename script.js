@@ -4,7 +4,18 @@ const loadExchangeRates = async () => {
 
     const data = await response.json();
 
-    console.log(data);
+    const ul = document.querySelector('#exchange-rates');
+
+    // the function that is the argument to forEach
+    // will be called once for every element of the
+    // array data
+    // .forEach is a method of an array
+    data.forEach( (item) => {
+
+        // <li>AUD: 1.627 / 1 EUR</li>
+        ul.innerHTML = ul.innerHTML + '<li>' + item.currency + ': ' + item.rate + ' / 1 EUR</li>';
+
+    } )
 
 }
 
